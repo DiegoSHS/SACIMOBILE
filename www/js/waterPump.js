@@ -1,18 +1,8 @@
 
-//manual
-var manual = document.getElementById('checkManual');
-console.log('checkManual' + manual.checked);
-manual.checked = true;
-
-
-//automatico
-var estado = "OFF";
-
-
-fetch('https://saci.serveo.net/estado_sensor/6445e8fc1e2082065e3bd485')
+fetch('https://creepy-pink-lingerie.cyclic.app/api/log/')
   .then((response) => response.json())
   .then(data => {
-  /*// Obtener el contenedor de la etiqueta html
+  // Obtener el contenedor de la etiqueta html
   let canAgua = document.getElementById('tinaco');
 
   // Iterar sobre el array
@@ -20,20 +10,80 @@ fetch('https://saci.serveo.net/estado_sensor/6445e8fc1e2082065e3bd485')
   //imprimir en la etiqueta
   canAgua.innerHTML = `${filtro.value}%`;
           });
-*/
-console.log(data)
-        });
 
-if (estado == "ON") {
-  manual.disabled = true;
-  document.querySelector(".manual").style.opacity = 0.5;
-} else {
 
-}
+
+//manual
+var manual = document.getElementById('checkManual');
+console.log('checkManual' + manual.checked);
+manual.checked = true;
 
 var automatico = document.getElementById('checkAutomatico');
-console.log('checkAutomatico' + automatico.checked);
+  console.log('checkAutomatico' + automatico.checked);
 
+//automatico
+const checar_estado=()=>{
+  
+  
+  
+  var estado; 
+  fetch('https://creepy-pink-lingerie.cyclic.app/api/estado_sensor')
+    .then((response) => response.json())
+    .then(data => {
+  
+     estado = data[0].state;
+
+     console.log('Nuevo valor de estado: ' + estado);
+
+     if (estado == "1") {
+      manual.disabled = true;
+      document.querySelector(".manual").style.opacity = 0.5;
+      automatico.checked = false;
+    } else if(estado == "0"){
+      automatico.checked = true;
+    
+    }
+    });
+  
+  
+}
+
+
+
+const Automatico=()=>{
+  if (automatico.checked) {
+  fetch('https://creepy-pink-lingerie.cyclic.app/api/estado_sensor/6445e8fc1e2082065e3bd485', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({"state": "0"})
+})
+  .then(response => {
+
+   
+  });
+  alert("Modo automatico desactivado");
+  window.location.reload();
+  //checar_estado();
+}else{
+      fetch('https://creepy-pink-lingerie.cyclic.app/api/estado_sensor/6445e8fc1e2082065e3bd485', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"state": "1"})
+      })
+      .then(response => {
+        
+
+      });
+     //checar_estado();
+     alert("Modo automatico activado");
+     window.location.reload();
+  }
+  
+}
 
 
 //Encender/apagar bomba Manualmente

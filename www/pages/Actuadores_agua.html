@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ac_agua.css">
 </head>
-<body>
+<body onload="checar_estado();">
     <header>
         <label class="title">SACI</label> <br>
         <label class="text">SISTEMA AUTOMATIZADO DE CONTROL DE INVERNADEROS</label>
@@ -20,7 +20,7 @@
         <div class="tinacoItem">
                     <div class="est"> 
                         <img src="../images/deposito-de-agua.png" alt="">
-                        <label id="tinaco" class="cantAgua">50%</label>
+                        <label id="tinaco" class="cantAgua">0%</label>
                     </div>
                     <div class="switch">
                         <label>LLENADO AUTOMATICO</label>
@@ -76,6 +76,6 @@
     </footer>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="../js/waterPump.js"></script>
-<script src="../js/api_aire.js"></script>
+
 </body>
 </html>
