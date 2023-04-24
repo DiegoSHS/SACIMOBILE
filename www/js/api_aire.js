@@ -1,4 +1,4 @@
-fetch('https://saci.serveo.net/api/logs')
+fetch('https://creepy-pink-lingerie.cyclic.app/api/log')
     .then((response) => response.json())
     .then(data => {
         // Obtener el contenedor de la etiqueta html
@@ -14,3 +14,15 @@ fetch('https://saci.serveo.net/api/logs')
         humedad.innerHTML = `${filtro2.value}%`;
         radiacion.innerHTML = `${filtro3.value} W/m²`;
       });
+
+fetch('https://creepy-pink-lingerie.cyclic.app/api/log/')
+  .then((response) => response.json())
+  .then(data => {
+  // Obtener el contenedor de la etiqueta html
+  let canAgua = document.getElementById('tinaco');
+
+  // Iterar sobre el array
+  let filtro = data.find(element => element.id == "nivel_agua"); 
+  //imprimir en la etiqueta
+  canAgua.innerHTML = `${filtro.value}%`;
+          });
