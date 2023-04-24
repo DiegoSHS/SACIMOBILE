@@ -1,4 +1,4 @@
-fetch('https://fusus.serveo.net/log')
+fetch('https://pyga.serveo.net/log')
     .then((response) => response.json())
     .then(data => {
         // Obtener el contenedor de la etiqueta html
