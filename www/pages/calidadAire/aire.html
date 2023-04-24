@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../../js/calidadAire.js"></script>
     <link rel="stylesheet" href="../../css/suelo/hemedad.css">
 </head>
-<body>
+<body onload="splitData()">
     <header>
         <label class="title">SACI</label> <br>
         <label class="text">SISTEMA AUTOMATIZADO DE CONTROL DE INVERNADEROS</label>
     </header>
     <div class="content">
         <div class="title">
-            <label >Calidad del agua y aire</label>
+            <label onclick="splitData()">Calidad del agua y aire</label>
         </div>
         <div class="module">
             <a href="" class="enlace"><div class="sensors">
@@ -49,9 +50,8 @@
                 </div>
             </div></a>
         </div>
-       
-       <div>
-       </div>
+        <div>
+    </div>
 
     </div>
     <footer>
