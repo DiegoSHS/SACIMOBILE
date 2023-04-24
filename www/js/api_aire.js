@@ -1,4 +1,4 @@
-fetch('https://pyga.serveo.net/log')
+fetch('https://saci.serveo.net/api/logs')
     .then((response) => response.json())
     .then(data => {
         // Obtener el contenedor de la etiqueta html
