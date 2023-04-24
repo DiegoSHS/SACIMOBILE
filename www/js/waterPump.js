@@ -8,6 +8,22 @@ manual.checked = true;
 //automatico
 var estado = "OFF";
 
+
+fetch('https://saci.serveo.net/estado_sensor/6445e8fc1e2082065e3bd485')
+  .then((response) => response.json())
+  .then(data => {
+  /*// Obtener el contenedor de la etiqueta html
+  let canAgua = document.getElementById('tinaco');
+
+  // Iterar sobre el array
+  let filtro = data.find(element => element.id == "nivel_agua"); 
+  //imprimir en la etiqueta
+  canAgua.innerHTML = `${filtro.value}%`;
+          });
+*/
+console.log(data)
+        });
+
 if (estado == "ON") {
   manual.disabled = true;
   document.querySelector(".manual").style.opacity = 0.5;

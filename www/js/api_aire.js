@@ -19,7 +19,7 @@ fetch('https://saci.serveo.net/api/logs')
   .then((response) => response.json())
   .then(data => {
   // Obtener el contenedor de la etiqueta html
-  let canAgua = document.getElementById('canAgua');
+  let canAgua = document.getElementById('tinaco');
 
   // Iterar sobre el array
   let filtro = data.find(element => element.id == "nivel_agua"); 
