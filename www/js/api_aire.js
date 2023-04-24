@@ -1,4 +1,4 @@
-fetch('https://calm-impalas-repair-189-161-86-109.loca.lt/log')
+fetch('https://saci.serveo.net/api/logs')
     .then((response) => response.json())
     .then(data => {
         // Obtener el contenedor de la etiqueta html
