@@ -146,7 +146,7 @@ footer{
     font-weight: 900;
     font-size: 15px;
     line-height: 18px;
-
+    gap: 5px;
     color: #000000;
 }
 

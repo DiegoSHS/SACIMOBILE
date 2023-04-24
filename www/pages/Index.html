@@ -19,22 +19,26 @@
     <div class="content">
         <div class="module">
             <label>Suelo</label>
-            <a href="" class="enlace">
                 <div class="sensors">
-                    <div class="box">
-                        <a href="./suelo/ph.html"><img src="../images/suelo/ph.png" class="acomodar"></a>
-                        <label id="value-PH">6.5 pH</label>
+                    <div class="box" onclick="ph()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/ph.png" class="acomodar">
+                            <label id="value-PH"></label>
+                        </div>
                     </div>
-                    <div class="box">
-                        <a href="./suelo/humedad.html"><img src="../images/suelo/humedad.png" class="acomodar"></a> 
-                        <label id="value-Hume">40 %</label>
+                    <div class="box" onclick="humedad()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/humedad.png" class="acomodar">
+                            <label id="value-Hume"></label>
+                        </div>
                     </div>
-                    <div class="box">
-                        <a href="./suelo/temperatura.html"><img src="../images/suelo/temperatura.png" class="acomodar"></a>
-                        <label id="value-Temp">22 °C</label>
+                    <div class="box" onclick="temperatura()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/temperatura.png" class="acomodar">
+                            <label id="value-Temp"></label>
+                        </div>
                     </div>
                 </div>
-            </a>
         </div>
         <div class="module">
             <label>Aire</label>

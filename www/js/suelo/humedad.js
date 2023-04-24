@@ -1,9 +1,10 @@
-const server = 'https://saci.serveo.net';
+const server = 'https://creepy-pink-lingerie.cyclic.app';
 let logsUrl
-logsUrl = `${server}/api/logs`;
+logsUrl = `${server}/api/log`;
 sensorUrl = `${server}/api/sensors`;
 
-
+setInterval(() => {
+    
 fetch(logsUrl)
     .then(response => response.json())
     .then(response => {
@@ -22,3 +23,5 @@ fetch(logsUrl)
         h1_3.innerHTML = data['humedad_suelo_s3'] + " %" || 'No se encontraron resultados';
     })
     .catch(error => console.log(error));
+    
+}, 60000);

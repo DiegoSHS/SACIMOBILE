@@ -1,6 +1,8 @@
-const server = 'https://saci.serveo.net';
+const server = 'https://creepy-pink-lingerie.cyclic.app';
 let logsUrl
-logsUrl = `${server}/api/logs`;
+logsUrl = `${server}/api/log`;
+
+setInterval(() => {
 
 fetch(logsUrl)
     .then(response => response.json())
@@ -47,8 +49,7 @@ fetch(logsUrl)
     })
     .catch(error => console.log(error));
 
-
-
+}, 60000);
 
 function ph() {
     window.location.href = '../../pages/suelo/ph.html'
