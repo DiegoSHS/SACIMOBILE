@@ -1,16 +1,19 @@
 
-fetch('https://creepy-pink-lingerie.cyclic.app/api/log/')
-  .then((response) => response.json())
-  .then(data => {
-  // Obtener el contenedor de la etiqueta html
-  let canAgua = document.getElementById('tinaco');
+const rellenarInicio=()=>{
+    fetch('https://creepy-pink-lingerie.cyclic.app/api/log/')
+    .then(response => response.json())
+    .then(data => {
+      const ultimoNivelAgua = data
+        .reverse() // invertir el arreglo para que el último elemento sea el primero
+        .find(item => item.id === 'nivel_agua'); // encontrar el primer elemento con el valor 'nivel_agua'
+      const label = document.getElementById('tinaco');
+      label.textContent = ultimoNivelAgua.value;
+    })
+    .catch(error => console.error(error));
+}
 
-  // Iterar sobre el array
-  let filtro = data.find(element => element.id == "nivel_agua"); 
-  //imprimir en la etiqueta
-  canAgua.innerHTML = `${filtro.value}%`;
-          });
 
+setInterval(rellenarInicio, 3000); // Realizar una petición cada 5 segundos
 
 
 //manual
@@ -92,7 +95,7 @@ const manualEncApa=()=>{
    console.log('El elemento no está marcado');
    
     const Http = new XMLHttpRequest();
-    const url='https://58c3-2806-10a6-15-7eab-ecc3-4b59-fab3-b3d5.ngrok-free.app/apagar_aspersores';
+    const url='https://923c-189-161-153-176.ngrok-free.app/apagar_aspersores';
     Http.open("POST", url);
     Http.send();
     
@@ -112,7 +115,7 @@ const manualEncApa=()=>{
     console.log('El elemento está marcado');
 
     const Http = new XMLHttpRequest();
-    const url='https://58c3-2806-10a6-15-7eab-ecc3-4b59-fab3-b3d5.ngrok-free.app/encender_aspersores';
+    const url='https://923c-189-161-153-176.ngrok-free.app/encender_aspersores';
     Http.open("POST", url);
     Http.send();
     
