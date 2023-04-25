@@ -16,9 +16,9 @@
 .boxSprinklersControl {
     position: relative;
     width: 90%;
-    height: 422px;
+    height: 300px;
     left: 5%;
-    top: 10%;
+    top: 12%;
     background: #eeeeee;
     border-radius: 10px;
     display: flexbox;
