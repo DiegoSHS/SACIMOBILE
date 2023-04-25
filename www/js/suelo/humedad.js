@@ -24,4 +24,4 @@ fetch(logsUrl)
     })
     .catch(error => console.log(error));
     
-}, 60000);
+}, 3000);
