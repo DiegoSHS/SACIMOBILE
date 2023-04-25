@@ -19,23 +19,22 @@
         <label class="text">SISTEMA AUTOMATIZADO DE CONTROL DE INVERNADEROS</label>
     </header>
     <div class="content">
-        <label class="sprinklersTitle">Control Aspersores</label>
+        <label class="sprinklersTitle">Control Aspersores <br>(dejar descansar minimo por 5m)</label>
         <div class="boxSprinklersControl">
             <label class="sprinklersHead">Estado de los Aspersores</label>
             <img src="../images/sprinklers/sprinklerIcon.png" class="sprinklerIcon">
 
-            <div class="buttonOnOff b100" id="button-100">
-                <input type="checkbox" class="checkbox1" id="aspersores"/>
+            <div class="buttonOnOff b100 manual" id="button-100">
+                <input type="checkbox" class="checkbox1" id="manual" onclick="manualEncApa()">
                 <div class="knobs1">
                     <span>On</span>
                 </div>
                 <div class="layer"></div>
                 </div>
-              
-                <label class="sprinklersCant">Cantidad de agua en litros</LAbel>
-                    <input type="text" id="sprinklersLiters" placeholder="30" class="sprinklersLiters" disabled>
+                
                    
         </div>
+        
     </div>
     <footer>
         <a href="mouloAire.html" class="quitar"><div class="item"><img src="../images/ondas.png" alt=""> <label>Aire</label></div></a>
