@@ -113,15 +113,14 @@ footer{
 
 
 .box{
-    width: 90%;
-    height: 90%;
-    background: #E2E2E2;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10%;
+  height: 90%;
+  background: #E2E2E2;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .box-2{

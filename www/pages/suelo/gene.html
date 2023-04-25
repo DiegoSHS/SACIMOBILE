@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../css/suelo/gene.css">
+    <script src="../../js/suelo/index.js"></script>
 </head>
+
 <body>
     <header>
         <label class="title">SACI</label> <br>
@@ -14,43 +17,42 @@
     </header>
     <div class="content">
         <div class="title">
-            <label >Estado del suelo</label>
+            <label>Estado del suelo</label>
         </div>
-        <div class="module">
-            <a href="" class="enlace"><div class="sensors">
-                <div class="box">
-                    <a href="./ph.html"><img src="../../images/suelo/ph_color.png" class="acomodar"> </a>
-                    <div class="num">70%</div>
-                    <label id="valueG1">pH general</label>
-                </div>
-            </div></a>
+        <div class="module" onclick="ph()">
+            <div class="box">
+                <a href="./ph.html"><img src="../../images/suelo/ph_color.png" class="acomodar"> </a>
+                <div class="num" id="value-PH"></div>
+                <label>pH general</label>
+            </div>
         </div>
-        <div class="module">
-            <a href="" class="enlace"><div class="sensors">
-                <div class="box">
-                    <a href="./humedad.html"><img src="../../images/suelo/humedad_color.png" class="acomodar"> </a>
-                    <div class="num">23°C</div>
-                    <label id="valueG2">Humedad general</label>
-                </div>
-            </div></a>
+        <div class="module" onclick="humedad()">
+            <div class="box">
+                <a href="./humedad.html"><img src="../../images/suelo/humedad_color.png" class="acomodar"> </a>
+                <div class="num" id="value-Hume"></div>
+                <label>Humedad general</label>
+            </div>
         </div>
-        <div class="module">
-            <a href="" class="enlace"><div class="sensors">
-                <div class="box">
-                    <a href="./temperatura.html"><img src="../../images/suelo/temperatura_color.png" class="acomodar"></a>
-                    <div class="num">25°C</div>
-                    <label id="valueTempG3">Temperatura general</label>
-                </div>
-            </div></a>
+        <div class="module" onclick="temperatura()">
+            <div class="box">
+                <a href="./temperatura.html"><img src="../../images/suelo/temperatura_color.png" class="acomodar"></a>
+                <div class="num" id="value-Temp"></div>
+                <label>Temperatura general</label>
+            </div>
         </div>
-       
-      
-
     </div>
+
     <footer>
-        <a href="../mouloAire.html"><div class="item"><img src="../../images/ondas.png" alt=""> <label>Aire</label></div></a>
-        <a href="../Index.html"><div class="home"><img src="../../images/SACI.png" alt=""></div></a>
-        <a href="gene.html"><div class="item"><img src="../../images/jardineria.png" alt=""> <label>Suelo</label></div></a>
+        <a href="../mouloAire.html">
+            <div class="item"><img src="../../images/ondas.png" alt=""> <label>Aire</label></div>
+        </a>
+        <a href="../Index.html">
+            <div class="home"><img src="../../images/SACI.png" alt=""></div>
+        </a>
+        <a href="gene.html">
+            <div class="item"><img src="../../images/jardineria.png" alt=""> <label>Suelo</label></div>
+        </a>
     </footer>
 </body>
+
 </html>

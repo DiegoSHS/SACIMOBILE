@@ -1,35 +1,40 @@
-var manual = document.getElementById('aspersores');
-console.log('aspersores' + manual.checked);
+var manual = document.getElementById('manual');
+console.log('checkManual' + manual.checked);
 manual.checked = true;
 
-
-manual.addEventListener('click', function () {
+const manualEncApa=()=>{
   if (manual.checked) {
-    console.log('El riego se detuvo');
-
-    $.ajax({
-      url: "http://192.168.1.195:5000/apagar_aspersores",
-      type: "GET",
-      success: function (response) {
-        console.log(response);
-      },
-      error: function (error) {
-        console.error(error);
-      }
-    });
+   console.log('El elemento no está marcado');
+   
+    const Http = new XMLHttpRequest();
+    const url='https://923c-189-161-153-176.ngrok-free.app/apagar_aspersores';
+    Http.open("POST", url);
+    Http.send();
+    
+    Http.onreadystatechange = (e) => {
+      console.log(Http.responseText)
+    }
+   
+    setTimeout(function() {
+      manual.disabled = false;
+      document.querySelector(".manual").style.opacity = 1;
+    }, 60000);
+    // Deshabilita el checkbox temporalmente
+    manual.disabled = true;
+    document.querySelector(".manual").style.opacity = 0.5;
 
   } else {
-    console.log('Inicio de riego');
-    $.ajax({
-      url: "http://192.168.1.195:5000/encender_aspersores",
-      type: "GET",
-      success: function (response) {
-        console.log(response);
-      },
-      error: function (error) {
-        console.error(error);
-      }
-    });
+    console.log('El elemento está marcado');
 
+    const Http = new XMLHttpRequest();
+    const url='https://923c-189-161-153-176.ngrok-free.app/encender_aspersores';
+    Http.open("POST", url);
+    Http.send();
+    
+    Http.onreadystatechange = (e) => {
+      console.log(Http.responseText)
+    }
+
+    
   }
-});
+};

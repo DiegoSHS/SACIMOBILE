@@ -146,7 +146,7 @@ footer{
     font-weight: 900;
     font-size: 15px;
     line-height: 18px;
-
+    gap: 5px;
     color: #000000;
 }
 
@@ -178,7 +178,7 @@ footer{
   font-family: 'Inter';
 font-style: italic;
 font-weight: 300;
-font-size: 20px;
+font-size: 3vh;
 line-height: 24px;
 
 color: #0019F7;

@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ac_agua.css">
 </head>
-<body>
+<body onload="checar_estado();">
     <header>
         <label class="title">SACI</label> <br>
         <label class="text">SISTEMA AUTOMATIZADO DE CONTROL DE INVERNADEROS</label>
@@ -18,7 +20,7 @@
         <div class="tinacoItem">
                     <div class="est"> 
                         <img src="../images/deposito-de-agua.png" alt="">
-                        <label id="cantAgua">50%</label>
+                        <label id="tinaco" class="cantAgua">0%</label>
                     </div>
                     <div class="switch">
                         <label>LLENADO AUTOMATICO</label>
@@ -27,7 +29,7 @@
                                 <div class="toggle-button-cover">
                                     <div class="button-cover">
                                         <div class="button b2" id="button-10">
-                                        <input type="checkbox" id="checkAutomatico" class="checkbox" />
+                                        <input type="checkbox" id="checkAutomatico" class="checkbox"  onclick="Automatico();"/>
                                         <div class="knobs">
                                             <span>On</span>
                                         </div>
@@ -51,7 +53,7 @@
                         <div class="toggle-button-cover">
                             <div class="button-cover">
                                 <div class="button b2 manual" id="button-10">
-                                <input type="checkbox" class="checkbox" id="checkManual" />
+                                <input type="checkbox" class="checkbox" id="checkManual" onclick="manualEncApa();"/>
                                 <div class="knobs">
                                     <span>On</span>
                                 </div>
@@ -74,5 +76,6 @@
     </footer>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="../js/waterPump.js"></script>
+
 </body>
 </html>

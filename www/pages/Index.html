@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/js.js"></script>
     <script src="../js/api_aire.js"></script>
+    <script src="../js/suelo/index.js"></script>
     <link rel="icon" type="image/png" href="../images/icons/SACI_logo.png">
 </head>
 <body>
@@ -18,22 +19,26 @@
     <div class="content">
         <div class="module">
             <label>Suelo</label>
-            <a href="" class="enlace">
                 <div class="sensors">
-                    <div class="box">
-                        <a href="./suelo/ph.html"><img src="../images/suelo/ph.png" class="acomodar"></a>
-                        <label id="value-PH">6.5 pH</label>
+                    <div class="box" onclick="ph()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/ph.png" class="acomodar">
+                            <label id="value-PH"></label>
+                        </div>
                     </div>
-                    <div class="box">
-                        <a href="./suelo/humedad.html"><img src="../images/suelo/humedad.png" class="acomodar"></a> 
-                        <label id="value-Hume">40 %</label>
+                    <div class="box" onclick="humedad()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/humedad.png" class="acomodar">
+                            <label id="value-Hume"></label>
+                        </div>
                     </div>
-                    <div class="box">
-                        <a href="./suelo/temperatura.html"><img src="../images/suelo/temperatura.png" class="acomodar"></a>
-                        <label id="value-Temp">22 °C</label>
+                    <div class="box" onclick="temperatura()">
+                        <div class="itemBox">
+                            <img src="../images/suelo/temperatura.png" class="acomodar">
+                            <label id="value-Temp"></label>
+                        </div>
                     </div>
                 </div>
-            </a>
         </div>
         <div class="module">
             <label>Aire</label>
@@ -83,45 +88,15 @@
             <div class="sensors">
                 <div class="box" onclick="moveTinaco();">
                     <img src="../images/tinaco.png" class="acomodar">
-                    <label id="tinaco">50%</label>
+                    <label id="tinaco">0%</label>
                 </div>
-                <div class="box">
-                    <div class="control">
-                        <div class="controlItemUp" onclick="moveToMalla();"><img src="../images/lamina.png" class="imgControl"></div>
-                        <div class="controlItemDown">
-                            <div class="toggle-button-cover">
-                                <div class="button-cover">
-                                    <div class="button b2" id="button-10">
-                                    <input type="checkbox" class="checkbox" />
-                                    <div class="knobs">
-                                        <span>On</span>
-                                    </div>
-                                    <div class="layer"></div>
-                                    </div>
-                                </div>
-                                </div>
-                        </div>
-                            
-                    </div>
+                <div class="box" onclick="moveToMalla();">
+                            <img src="../images/lamina.png" class="acomodar">
+                            <label for="">Malla</label>
                 </div>
-                <div class="box">
-                    <div class="control">
-                        <div class="controlItemUp" onclick="changeSprinklers()"><img src="../images/aspersor.png" class="imgControl"></div>
-                        <div class="controlItemDown">
-                            <div class="toggle-button-cover">
-                                <div class="button-cover">
-                                    <div class="button b2" id="button-10">
-                                    <input type="checkbox" class="checkbox">
-                                    <div class="knobs">
-                                        <span>On</span>
-                                    </div>
-                                    <div class="layer"></div>
-                                    </div>
-                                </div>
-                                </div>
-                        </div>
-                            
-                    </div>
+                <div class="box" onclick="changeSprinklers()">
+                        <img src="../images/aspersor.png" class="acomodar">
+                        <label for="">Aspersor</label>
                 </div>
             </div>
         </div>
