@@ -1,8 +1,6 @@
 const fetchData = async () => {
     try {
-        const response = fetch('https://creepy-pink-lingerie.cyclic.app/log/',{
-            mode:"no-cors",
-        })
+        const response = fetch('https://creepy-pink-lingerie.cyclic.app/log')
         const results = await response.json()
         console.log(results)
         return results
@@ -14,7 +12,7 @@ const fetchData = async () => {
 const splitData = async () => {
     const results = await fetchData()
     if (results) {
-        showData(results)
+        document.getElementById('tds').innerHTML = results[0]
     }
 }
 
