@@ -1,6 +1,6 @@
 const fetchData = async () => {
     try {
-        const response = fetch('https://glorious-lime-termite.cyclic.app/log/aguaAire/')
+        const response = fetch('https://creepy-pink-lingerie.cyclic.app/log')
         const results = await response.json()
         return results
     } catch (error) {
@@ -11,13 +11,12 @@ const fetchData = async () => {
 const splitData = async () => {
     const results = await fetchData()
     if (results) {
-        showData(results)
+        document.getElementById('tds').innerHTML = results[0]
     }
 }
 
 const showData = (data) => {
-    const { conductividad, tds, co2, intensLumina } = data
-    document.getElementById('conductividad').innerHTML = conductividad
+    const { tds, co2, intensLumina } = data
     document.getElementById('tds').innerHTML = tds
     document.getElementById('co2').innerHTML = co2
     document.getElementById('intensLumina').innerHTML = intensLumina
