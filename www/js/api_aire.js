@@ -8,22 +8,20 @@ const rellenarInicio=()=>{
     .find(item => item.id === 'temperatura_aire');
 
     const filtro2 = data
-    .reverse()
     .find(item => item.id === 'humedad_aire');
 
     const filtro3 = data
-    .reverse()
     .find(item => item.id === 'radiacion_solar_aire');
 
-      // Obtener el contenedor de la etiqueta html
-      let temperatura = document.getElementById('temperatura');
-      let humedad = document.getElementById('humedad');
-      let radiacion = document.getElementById('radiacion');
+    // Obtener el contenedor de la etiqueta html
+    let temperatura = document.getElementById('temperatura');
+    let humedad = document.getElementById('humedad');
+    let radiacion = document.getElementById('radiacion');
 
-      //imprimir en la etiqueta
-      temperatura.innerHTML = `${filtro1.value}°`;
-      humedad.innerHTML = `${filtro2.value}%`;
-      radiacion.innerHTML = `${filtro3.value} W/m²`;
+    //imprimir en la etiqueta
+    temperatura.innerHTML = `${filtro1.value}°`;
+    humedad.innerHTML = `${filtro2.value}%`;
+    radiacion.innerHTML = `${filtro3.value} W/m²`;
     });
 
 
