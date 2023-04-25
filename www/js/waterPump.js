@@ -1,3 +1,13 @@
+const botarSeguro=()=>{
+  const Http = new XMLHttpRequest();
+    const url='https://923c-189-161-153-176.ngrok-free.app/apagar_bomba';
+    Http.open("POST", url);
+    Http.send();
+    
+    Http.onreadystatechange = (e) => {
+      console.log(Http.responseText)
+    }
+}
 
 const rellenarInicio=()=>{
     fetch('https://creepy-pink-lingerie.cyclic.app/api/log/')
@@ -7,13 +17,15 @@ const rellenarInicio=()=>{
         .reverse() // invertir el arreglo para que el último elemento sea el primero
         .find(item => item.id === 'nivel_agua'); // encontrar el primer elemento con el valor 'nivel_agua'
       const label = document.getElementById('tinaco');
-      label.textContent = ultimoNivelAgua.value;
+      if (ultimoNivelAgua.value>100){botarSeguro(); label.textContent = "100%";}
+      else{label.textContent = ultimoNivelAgua.value+ "%";} 
+      
     })
     .catch(error => console.error(error));
 }
 
 
-setInterval(rellenarInicio, 3000); // Realizar una petición cada 5 segundos
+setInterval(rellenarInicio, 1000); // Realizar una petición cada 5 segundos
 
 
 //manual
@@ -132,3 +144,6 @@ const manualEncApa=()=>{
     document.querySelector(".manual").style.opacity = 0.5;
   }
 };
+
+
+

@@ -34,7 +34,8 @@ const rellenarInicio=()=>{
         .reverse() // invertir el arreglo para que el último elemento sea el primero
         .find(item => item.id === 'nivel_agua'); // encontrar el primer elemento con el valor 'nivel_agua'
       const label = document.getElementById('tinaco');
-      label.textContent = ultimoNivelAgua.value;
+      if (ultimoNivelAgua.value>100){ label.textContent = "100%";}
+      else{label.textContent = ultimoNivelAgua.value+ "%";} 
     })
     .catch(error => console.error(error));
 }
