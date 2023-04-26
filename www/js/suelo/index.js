@@ -49,7 +49,7 @@ fetch(logsUrl)
     })
     .catch(error => console.log(error));
 
-}, 60000);
+}, 3000);
 
 function ph() {
     window.location.href = '../../pages/suelo/ph.html'
