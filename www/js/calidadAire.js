@@ -1,6 +1,7 @@
+const apilink = 'https://creepy-pink-lingerie.cyclic.app/api'
 const fetchData = async () => {
     try {
-        const response = fetch('https://creepy-pink-lingerie.cyclic.app/log')
+        const response = fetch(`${apilink}/log/`)
         const results = await response.json()
         console.log(results)
         return results
