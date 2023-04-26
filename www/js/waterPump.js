@@ -1,6 +1,6 @@
 const botarSeguro=()=>{
   const Http = new XMLHttpRequest();
-    const url='https://923c-189-161-153-176.ngrok-free.app/apagar_bomba';
+    const url=' https://a288-189-161-153-176.ngrok-free.app/apagar_bomba';
     Http.open("POST", url);
     Http.send();
     
@@ -107,7 +107,7 @@ const manualEncApa=()=>{
    console.log('El elemento no está marcado');
    
     const Http = new XMLHttpRequest();
-    const url='https://923c-189-161-153-176.ngrok-free.app/apagar_bomba';
+    const url=' https://a288-189-161-153-176.ngrok-free.app/apagar_bomba';
     Http.open("POST", url);
     Http.send();
     
@@ -127,7 +127,7 @@ const manualEncApa=()=>{
     console.log('El elemento está marcado');
 
     const Http = new XMLHttpRequest();
-    const url='https://923c-189-161-153-176.ngrok-free.app/encender_bomba';
+    const url=' https://a288-189-161-153-176.ngrok-free.app/encender_bomba';
     Http.open("POST", url);
     Http.send();
     

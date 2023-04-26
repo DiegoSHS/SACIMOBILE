@@ -12,7 +12,7 @@ const manualEncApa=()=>{
         console.log('El elemento no está marcado');
    
     const Http = new XMLHttpRequest();
-    const url='https://58c3-2806-10a6-15-7eab-ecc3-4b59-fab3-b3d5.ngrok-free.app/apagar_malla';
+    const url=' https://a288-189-161-153-176.ngrok-free.app/apagar_malla';
     Http.open("POST", url);
     Http.send();
     
@@ -33,7 +33,7 @@ const manualEncApa=()=>{
       console.log('El elemento está marcado');
   
       const Http = new XMLHttpRequest();
-      const url='https://58c3-2806-10a6-15-7eab-ecc3-4b59-fab3-b3d5.ngrok-free.app/encender_malla';
+      const url=' https://a288-189-161-153-176.ngrok-free.app/encender_malla';
       Http.open("POST", url);
       Http.send();
       
