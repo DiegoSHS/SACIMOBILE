@@ -6,20 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
+        </script>
     <link rel="stylesheet" href="../css/semantic.min.css">
-    <script src="../js//semantic.min.js"></script>r
+    <script src="../js//semantic.min.js"></script>
+    <link rel="stylesheet" href="../css//border.css">
     <link rel="stylesheet" href="../css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="../css/uicons-solid-rounded.css">
     <script type="module" src="../js/index.js"></script>
 </head>
 
 <body>
-    <div id="navbar"></div>
+    <div id="navbar" class="ui borderless menu fixed bottom">
+        <div class="ui container"></div>
+    </div>
     <div class="ui one column grid" id="content">
-        <div class="ui fluid container">
+        <div id="margin" class="ui fluid container">
             <div class="ui centered container inverted stretched one column grid">
                 <div class="center aligned middle aligned column">
                     <form class="ui form">
-                        <div class="ui header">Suelo</div>
+                        <h1 class="ui header">Suelo</h1>
                         <div class="equal width fields">
                             <div class="field">
                                 <label>Temperatura del suelo</label>
@@ -31,14 +38,64 @@
                             <div class="field">
                                 <label>Temperatura del suelo</label>
                                 <div class="ui massive circular fluid icon left labeled button">
-                                    <i aria-hidden="true" class="fi-rr-leaf icon green"></i>
+                                    <i aria-hidden="true" class="fi-sr-leaf icon green"></i>
                                     Temperatura: 20°C
                                 </div>
                             </div>
                             <div class="field">
                                 <label>Temperatura del suelo</label>
                                 <div class="ui massive circular fluid icon left labeled button">
-                                    <i aria-hidden="true" class="fi-rr-raindrops icon blue"></i>
+                                    <i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        <h1 class="ui header">Aire</h1>
+                        <div class="equal width fields">
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-rr-summer icon red"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-sr-bulb icon yellow"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        <h1 class="ui header">Suelo</h1>
+                        <div class="equal width fields">
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-sr-cloud icon black"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-sr-sun icon yellow"></i>
+                                    Temperatura: 20°C
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Temperatura del suelo</label>
+                                <div class="ui massive circular fluid icon left labeled button">
+                                    <i aria-hidden="true" class="fi-sr-humidity icon brown"></i>
                                     Temperatura: 20°C
                                 </div>
                             </div>
