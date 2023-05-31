@@ -1,3 +1,17 @@
 #margin{
-    margin-top: 5vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+#navbar{
+    background-color: #ffffff80;
+    backdrop-filter: blur(10px);
+}
+#content{
+    backdrop-filter: blur(10px) saturate(180%);;
+}
+#background{
+    background-image: url("/www/img/body.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
