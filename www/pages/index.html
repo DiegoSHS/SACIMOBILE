@@ -6,24 +6,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="../css/semantic.min.css">
+    <link rel="stylesheet" href="../css//border.css">
+    <link rel="stylesheet" href="../css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="../css/uicons-solid-rounded.css">
     <script type="module" src="../js/index.js"></script>
+    <script src="../js/semantic.min.js"></script>
 </head>
 
 <body>
-    <div id="navbar"></div>
-    <div class="container text-center" id="content">
-        <div class="row">
-            <div class="col-12">
-                <button type="button" onclick="useButton()" class="btn btn-secondary btn-lg">Large button</button>
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <div id="navbar" class="ui secondary pointing bottom fixed three item menu borderless">
+        <a class="item">
+            Inicio
+        </a>
+        <a class="item">
+            Suelo
+        </a>
+        <a class="item">
+            Aire
+        </a>
+    </div>
+    <div id="background">
+        <div class="ui one column" id="content">
+            <div id="overcontent" class="ui fluid grid container">
+                <div id="margin" class="ui centered inverted stretched one column grid">
+                    <div class="center aligned middle aligned column">
+                        <form class="ui form">
+                            <h1 class="ui header">Suelo</h1>
+                            <div class="equal width fields">
+                                <div class="field">
+                                    <label>Temperatura del suelo</label>
+                                    <div id="tempAvg" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Nivel de Ph</label>
+                                    <div id="phAvg" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Humedad del suelo
+                                    </label>
+                                    <div id="humAvg" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui divider"></div>
+                            <h1 class="ui header">Aire</h1>
+                            <div class="equal width fields">
+                                <div class="field">
+                                    <label>Temperatura del aire
+                                    </label>
+                                    <div id="tempAire" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Luminosidad del ambiente
+                                    </label>
+                                    <div id="lum" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Humedad del aire
+                                    </label>
+                                    <div id="humAire" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui divider"></div>
+                            <h1 class="ui header">Suelo</h1>
+                            <div class="equal width fields">
+                                <div class="field">
+                                    <label>Cantidad de co2 en el ambiente
+                                    </label>
+                                    <div id="co2" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Radiación solar en el ambiente
+                                    </label>
+                                    <div id="radiation" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Total de sólidos en agua
+                                    </label>
+                                    <div id="tds" class="ui massive circular fluid icon left labeled button record">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+        <div id="footer"></div>
     </div>
-    <div id="footer"></div>
 </body>
 
 </html>
