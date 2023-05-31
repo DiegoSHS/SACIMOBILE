@@ -1,8 +1,5 @@
 import { navbar } from "./components/navbar.js"
 import { getSummary, useState } from "./requests.js";
-const setNavbar = () => {
-    document.getElementById('navbar').innerHTML = navbar()
-}
 
 const setValues = (records) => {
     const {
