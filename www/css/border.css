@@ -1,3 +1,4 @@
+
 :root{
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
@@ -40,4 +41,15 @@ body{
 }
 .sendRight{
     transform: translate(100vw) !important;
+    background-color: #ffffff80;
+    backdrop-filter: blur(10px);
+}
+#content{
+    backdrop-filter: blur(10px) saturate(180%);;
+}
+#background{
+    background-image: url("/www/img/body.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
