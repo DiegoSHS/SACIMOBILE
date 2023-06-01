@@ -7,13 +7,14 @@
     <icon src="res/icon/android/SACI.png" density="xhdpi" />
     <icon src="res/icon/android/SACI.png" density="xxhdpi" />
 </platform>
-
     <name>SACI</name>
-    <description>Sample Apache Cordova App</description>
-    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+    <description>Aplicacion movid del Sistema Automatizado para Cultivos de invernader (SACI)</description>
+    <author email="sacidevops@gmail.com" href="https://saci-indol.vercel.app/">
         Apache Cordova Team
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <preference name="StatusBarOverlayWebView" value="true"/>
+    <preference name="StatusBarStyle" value="#lightcontent"/><preference name="StatusBarBackgroundColor" value="#21BA45" />
 </widget>

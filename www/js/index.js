@@ -1,5 +1,7 @@
-import { navbar } from "./components/navbar.js"
 import { getSummary, useState } from "./requests.js";
+import { setupNav, getChangedTouches, getTouches } from "./touches.js";
+
+window.screen.orientation.lock('portrait')
 
 const setValues = (records) => {
     const {
@@ -7,7 +9,7 @@ const setValues = (records) => {
         suelo: { tempAvg, phAvg, humAvg }
     } = records
     document.getElementById('tempAire').innerHTML = `<i aria-hidden="true" class="fi-rr-summer icon red"></i>
-    Tempe: ${tempAire} °C`
+    Temp: ${tempAire} °C`
     document.getElementById('humAire').innerHTML = `<i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
     Humedad: %${humAire}`
     document.getElementById('co2').innerHTML = `<i aria-hidden="true" class="fi-sr-cloud icon black"></i>
@@ -31,6 +33,7 @@ const removeElement = e => {
     const id = e.target.id
     const element = document.getElementById(id)
     element.remove()
+    navigator.vibrate(500)
 }
 
 const [loading, setLoading] = useState(true)
@@ -39,12 +42,12 @@ const toggleLoading = () => setLoading(!loading())
 
 const loadButtons = () => {
     const buttons = document.querySelectorAll('.record')
-    if(loading()){
+    if (loading()) {
         buttons.forEach(button => {
             button.classList.add('loading')
             button.addEventListener('click', removeElement)
         })
-    }else{
+    } else {
         buttons.forEach(button => {
             button.classList.remove('loading')
         })
@@ -52,20 +55,16 @@ const loadButtons = () => {
 }
 
 const setSummary = async () => {
-    console.log(window.location.href)
+    loadButtons()
     getSummary().then(summary => {
-        loadButtons()
         summary
-        setTimeout(() => {
-            toggleLoading()
-            loadButtons()
-            console.log(loading())
-            console.log(summary)
-            setValues(summary)
-        },3000)
-    }
-    )
-
+        toggleLoading()
+        loadButtons()
+        setValues(summary)
+    })
 }
 
+window.addEventListener('touchstart', getTouches)
+window.addEventListener('touchend', getChangedTouches)
+setupNav()
 setSummary()
