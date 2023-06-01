@@ -1,3 +1,7 @@
+/**
+ * 
+ * @returns Returns a promise with the data of the logs
+ */
 export const getSummary = async() => {
     const result = await fetch('https://saci-indol.vercel.app/api/saci/logs/summary')
     const data = await result.json()
