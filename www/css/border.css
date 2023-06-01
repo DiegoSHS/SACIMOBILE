@@ -1,8 +1,46 @@
+
+:root{
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+body ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+body{
+    background-image: url("../img/body.jpg");
+    background-size: cover;
+}
 #margin{
     margin-top: 10vh;
     margin-bottom: 10vh;
 }
 #navbar{
+    backdrop-filter: blur(10px) saturate(180%);
+    background-color: #00000080;
+}
+#content{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px) saturate(40%);
+}
+.overcontent{
+    overflow: hidden;
+}
+.spage{
+    top: 0;
+    width: 100% !important; 
+    height: 100% !important;
+    display: block !important;
+    position: fixed !important;
+    overflow: auto !important;
+    transition: ease-in-out 0.2s !important;
+}
+.sendLeft{
+    transform: translate(-100vw) !important;
+}
+.sendRight{
+    transform: translate(100vw) !important;
     background-color: #ffffff80;
     backdrop-filter: blur(10px);
 }

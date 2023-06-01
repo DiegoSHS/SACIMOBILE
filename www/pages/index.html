@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1,maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous">
         </script>
     <link rel="stylesheet" href="../css/semantic.min.css">
-    <link rel="stylesheet" href="../css//border.css">
+    <link rel="stylesheet" href="../css/border.css">
     <link rel="stylesheet" href="../css/uicons-regular-rounded.css">
     <link rel="stylesheet" href="../css/uicons-solid-rounded.css">
     <script type="module" src="../js/index.js"></script>
@@ -18,19 +19,19 @@
 </head>
 
 <body>
-    <div id="navbar" class="ui secondary pointing bottom fixed three item menu borderless">
-        <a class="item">
-            Inicio
-        </a>
-        <a class="item">
+    <div id="navbar" class="ui green secondary inverted pointing bottom fixed three item menu borderless">
+        <a class="item navitem grey" id="suelo">
             Suelo
         </a>
-        <a class="item">
+        <a class="item navitem grey" id="inicio">
+            Inicio
+        </a>
+        <a class="item navitem grey" id="aire">
             Aire
         </a>
     </div>
-    <div id="background">
-        <div class="ui one column" id="content">
+    <div id="content">
+        <div class="spage ui one column" id="page1">
             <div id="overcontent" class="ui fluid grid container">
                 <div id="margin" class="ui centered inverted stretched one column grid">
                     <div class="center aligned middle aligned column">
@@ -40,20 +41,19 @@
                                 <div class="field">
                                     <label>Temperatura del suelo</label>
                                     <div id="tempAvg" class="ui massive circular fluid icon left labeled button record">
-                                        
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Nivel de Ph</label>
                                     <div id="phAvg" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Humedad del suelo
                                     </label>
                                     <div id="humAvg" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -63,22 +63,24 @@
                                 <div class="field">
                                     <label>Temperatura del aire
                                     </label>
-                                    <div id="tempAire" class="ui massive circular fluid icon left labeled button record">
-                                        
+
+                                    <div id="tempAire"
+                                        class="ui massive circular fluid icon left labeled button record">
+
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Luminosidad del ambiente
                                     </label>
                                     <div id="lum" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Humedad del aire
                                     </label>
                                     <div id="humAire" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -89,21 +91,22 @@
                                     <label>Cantidad de co2 en el ambiente
                                     </label>
                                     <div id="co2" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Radiación solar en el ambiente
                                     </label>
-                                    <div id="radiation" class="ui massive circular fluid icon left labeled button record">
-                                        
+                                    <div id="radiation"
+                                        class="ui massive circular fluid icon left labeled button record">
+
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label>Total de sólidos en agua
                                     </label>
                                     <div id="tds" class="ui massive circular fluid icon left labeled button record">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -112,8 +115,44 @@
                 </div>
             </div>
         </div>
-        <div id="footer"></div>
+        <div class="spage ui one column sendLeft" id="page2">
+            <div id="overcontent" class="ui fluid grid container">
+                <div id="margin" class="ui centered inverted stretched one column grid">
+                    <div class="center aligned middle aligned column">
+                        <form class="ui form">
+                            <h1 class="ui header">Suelo</h1>
+                            <div class="equal width fields">
+                                <div class="field">
+                                    <button class="ui button">
+                                        esto irá a la izquierda
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spage ui one column sendRight" id="page3">
+            <div id="overcontent" class="ui fluid grid container">
+                <div id="margin" class="ui centered inverted stretched one column grid">
+                    <div class="center aligned middle aligned column">
+                        <form class="ui form">
+                            <h1 class="ui header">Aire</h1>
+                            <div class="equal width fields">
+                                <div class="field">
+                                    <button class="ui button">
+                                        esto irá a la derecha
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div id="footer"></div>
 </body>
 
 </html>
