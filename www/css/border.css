@@ -41,3 +41,6 @@ body{
 .sendRight{
     transform: translate(100vw) !important;
 }
+.justify{
+    text-align: justify;
+}
