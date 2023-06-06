@@ -42,5 +42,5 @@ body{
     transform: translate(100vw) !important;
 }
 .justify{
-    text-align: justify;
+    /*text-align: justify;*/
 }
