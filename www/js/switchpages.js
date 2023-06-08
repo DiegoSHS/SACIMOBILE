@@ -1,24 +1,39 @@
 import { setActivetab } from "./touches.js"
-
+/**
+ * Checks if the page is in the center
+ * @returns {Boolean} true if the page is in the center
+ */
 const isCenter = () => {
     const center = document.getElementById('page1')
     const left = center.classList.contains('sendLeft')
     const right = center.classList.contains('sendRight')
     return !(left || right)
 }
-
+/**
+ * Sets the page in the center by removing the classes 'sendRight' and 'sendLeft'
+ * @param {HTMLElement} element Page to set in the center
+ */
 const setCenter = (element) => {
     element.classList.remove('sendRight', 'sendLeft')
 }
-
+/**
+ * Send the page to the right by adding the class 'sendRight'
+ * @param {HTMLElement} element Page to send to the right
+ */
 const toggleRight = (element) => {
     element.classList.toggle('sendRight')
 }
-
+/**
+ * Send the page to the left by adding the class 'sendLeft'
+ * @param {HTMLElement} element Page to send to the left 
+ */
 const toggleLeft = (element) => {
     element.classList.toggle('sendLeft')
 }
-
+/**
+ * Moves the center page to the right if is in the center, otherwise moves the page back to the center
+ * @param {HTMLCollection} param0 The pages to move
+ */
 const goRight = ({center,right}) => {
     if(isCenter()){
         toggleLeft(center)
@@ -32,7 +47,10 @@ const goRight = ({center,right}) => {
         console.log('center')
     }
 }
-
+/**
+ * Moves the center page to the left if is in the center, otherwise moves the page back to the center
+ * @param {HTMLCollection} param0 The pages to move
+ */
 const goLeft = ({left,center}) => {
     if(isCenter()){
         setActivetab(document.getElementById('suelo'))
@@ -46,7 +64,11 @@ const goLeft = ({left,center}) => {
         console.log('center')
     }
 }
-
+/**
+ * If the touch is long enough, moves the page to the left or right based on the direction of the touch
+ * @param {Number} touch The distance of the touch
+ * @returns 
+ */
 export const togglePage = (touch) => {
     const longTouch = touch>80 || touch<-80
     if(!touch || !longTouch){
@@ -65,19 +87,29 @@ export const togglePage = (touch) => {
     }else{
         goLeft({left,center})
     }
-    
 }
-
+/**
+ * Moves the pages to its initial position
+ * @param {HTMLCollection} param0 The pages to move
+ */
 export const goCenterClick = ({left,center,right}) => {
     left.classList.add('sendLeft')
     right.classList.add('sendRight')
     center.classList.remove('sendLeft','sendRight')
 }
+/**
+ * Moves the center page to the right and the left page to the center
+ * @param {HTMLCollection} param0 The pages to move
+ */
 export const goLeftClick = ({left,center,right}) => {
     left.classList.remove('sendLeft')
     right.classList.add('sendRight')
     center.classList.add('sendRight')
 }
+/**
+ * Moves the center page to the left and the right page to the center
+ * @param {HTMLCollection} param0 The pages to move
+ */
 export const goRightClick = ({left,center,right}) => {
     left.classList.add('sendLeft')
     right.classList.remove('sendRight')

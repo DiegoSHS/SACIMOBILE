@@ -44,5 +44,6 @@ const setSummary = async () => {
 
 window.addEventListener('touchstart', getTouches)
 window.addEventListener('touchend', getChangedTouches)
+
 setupNav()
 setSummary()
