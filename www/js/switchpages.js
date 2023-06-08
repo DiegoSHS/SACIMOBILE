@@ -1,4 +1,5 @@
 import { setActivetab } from "./touches.js"
+
 /**
  * Checks if the page is in the center
  * @returns {Boolean} true if the page is in the center
@@ -9,6 +10,7 @@ const isCenter = () => {
     const right = center.classList.contains('sendRight')
     return !(left || right)
 }
+
 /**
  * Sets the page in the center by removing the classes 'sendRight' and 'sendLeft'
  * @param {HTMLElement} element Page to set in the center
@@ -34,6 +36,7 @@ const toggleLeft = (element) => {
  * Moves the center page to the right if is in the center, otherwise moves the page back to the center
  * @param {HTMLCollection} param0 The pages to move
  */
+
 const goRight = ({center,right}) => {
     if(isCenter()){
         toggleLeft(center)
@@ -51,6 +54,7 @@ const goRight = ({center,right}) => {
  * Moves the center page to the left if is in the center, otherwise moves the page back to the center
  * @param {HTMLCollection} param0 The pages to move
  */
+
 const goLeft = ({left,center}) => {
     if(isCenter()){
         setActivetab(document.getElementById('suelo'))

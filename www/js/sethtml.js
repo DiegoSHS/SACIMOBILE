@@ -1,5 +1,7 @@
+
 import { ActuatorCards } from "./components/sensorCard.js"
 import { enableSensor, useState } from "./requests.js"
+
 
 export const setSummaryValues = (records) => {
     const {
