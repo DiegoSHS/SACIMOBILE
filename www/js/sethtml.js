@@ -1,4 +1,7 @@
-import { SensorCards } from "./components/sensorCard.js"
+
+import { ActuatorCards } from "./components/sensorCard.js"
+import { enableSensor, useState } from "./requests.js"
+
 
 export const setSummaryValues = (records) => {
     const {
@@ -25,6 +28,55 @@ export const setSummaryValues = (records) => {
     Humedad: ${humAvg}%`
 }
 
+const toggleLoadingButton = (id) => {
+    const element = document.getElementById(id)
+    element.classList.toggle('loading')
+}
+
+const toggleColorButton = (id) => {
+    const element = document.getElementById(`act_${id}`)
+    if (element.classList.contains('green')) {
+        element.classList.remove('green')
+        element.classList.add('red')
+    } else {
+        element.classList.remove('red')
+        element.classList.add('green')
+    }
+}
+
+const toggleTextButton = (id) => {
+    const element = document.getElementById(id)
+    const html = element.innerHTML
+    const regex = /Encendido/g
+    if (regex.test(html)) {
+        element.innerHTML = html.replace('Encendido', 'Apagado')
+    } else {
+        element.innerHTML = html.replace('Apagado', 'Encendido')
+    }
+}
+
+const checkState = (id) => {
+    const element = document.getElementById(id)
+    const html = element.innerHTML
+    const regex = /Encendido/g
+    if (regex.test(html)) {
+        return false
+    }
+    return true
+}
+
 export const setActuatorsValues = (actuators) => {
-    //document.getElementById('actuators').innerHTML = SensorCards(actuators)
+    document.getElementById('actuators').innerHTML = ActuatorCards(actuators)
+    const enableButtons = document.querySelectorAll('.enable')
+    enableButtons.forEach(button => {
+        button.addEventListener('click', async e => {
+            e.preventDefault()
+            const { id } = e.target
+            toggleLoadingButton(id)
+            await enableSensor(id, checkState(id))
+            toggleLoadingButton(id)
+            toggleColorButton(id)
+            toggleTextButton(id)
+        })
+    })
 }
