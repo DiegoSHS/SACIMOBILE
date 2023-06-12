@@ -5,7 +5,7 @@
 /**
  * @constant API_URL The URL of the SACI API
  */
-const API_URL = 'https://saci-indol.vercel.app/api/'
+const API_URL = 'https://sacionweb.vercel.app/api/'
 
 /**
  * Get the summary of the logs from the API
