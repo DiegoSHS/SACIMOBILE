@@ -43,6 +43,8 @@ const toggleColorButton = (id) => {
 }
 
 const toggleTextButton = (id) => {
+    const element = document.getElementById(id)
+    const html = element.innerHTML
     if (checkState(id)) {
         element.innerHTML = html.replace('Encendido', 'Apagado')
     } else {
