@@ -47,7 +47,7 @@ export const getActuators = async() => {
 export const enableSensor = async (id, enable) => {
     try {
         const res = await fetch(`${API_URL}saci/sensor/${id}/enable`,{
-            method: 'PUT',
+            method: 'POST',
             body: JSON.stringify({ enable })
         })
         console.log(await res.json())
