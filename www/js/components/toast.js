@@ -10,6 +10,7 @@ export const stateToast = (state, duration) => {
     icon.classList.add('ui', 'mini', 'message')
     icon.style.borderRadius = '10px'
 
+
     icon.innerHTML = contentHtml
     Toastify({
         duration: duration,
