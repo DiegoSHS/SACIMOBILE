@@ -1,7 +1,5 @@
-
 import { ActuatorCards } from "./components/sensorCard.js"
-import { enableSensor, useState } from "./requests.js"
-
+import { enableSensor, getActuators, getSummary, useState } from "./requests.js"
 
 export const setSummaryValues = (records) => {
     const {
@@ -45,10 +43,7 @@ const toggleColorButton = (id) => {
 }
 
 const toggleTextButton = (id) => {
-    const element = document.getElementById(id)
-    const html = element.innerHTML
-    const regex = /Encendido/g
-    if (regex.test(html)) {
+    if (checkState(id)) {
         element.innerHTML = html.replace('Encendido', 'Apagado')
     } else {
         element.innerHTML = html.replace('Apagado', 'Encendido')
@@ -60,23 +55,58 @@ const checkState = (id) => {
     const html = element.innerHTML
     const regex = /Encendido/g
     if (regex.test(html)) {
-        return false
+        return true
     }
-    return true
+    return false
 }
 
-export const setActuatorsValues = (actuators) => {
+export const setActuatorState = async (id, norequest) => {
+    toggleLoadingButton(id)
+    if (!norequest) {
+        await enableSensor(id, !checkState(id))
+    }
+    toggleLoadingButton(id)
+    toggleColorButton(id)
+    toggleTextButton(id)
+}
+
+const setActuatorsValues = (actuators) => {
     document.getElementById('actuators').innerHTML = ActuatorCards(actuators)
     const enableButtons = document.querySelectorAll('.enable')
     enableButtons.forEach(button => {
         button.addEventListener('click', async e => {
             e.preventDefault()
             const { id } = e.target
-            toggleLoadingButton(id)
-            await enableSensor(id, checkState(id))
-            toggleLoadingButton(id)
-            toggleColorButton(id)
-            toggleTextButton(id)
+            setActuatorState(id)
         })
     })
+}
+
+const [loading, setLoading] = useState(true)
+
+const toggleLoading = () => setLoading(!loading())
+
+const loadButtons = () => {
+    const buttons = document.querySelectorAll('.record')
+    if (loading()) {
+        buttons.forEach(button => {
+            button.classList.add('loading')
+        })
+    } else {
+        buttons.forEach(button => {
+            button.classList.remove('loading')
+        })
+    }
+}
+
+export const setupPage = async () => {
+    loadButtons()
+    const results = await Promise.allSettled([getActuators(), getSummary()])
+    const values = results.map(({ value }) => value)
+    const [actuators, summary] = values
+    console.log(actuators, summary)
+    toggleLoading()
+    loadButtons()
+    setSummaryValues(summary)
+    setActuatorsValues(actuators)
 }
