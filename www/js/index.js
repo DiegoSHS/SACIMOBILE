@@ -1,17 +1,14 @@
-import { setActuatorState, setupPage } from "./sethtml.js";
-import { io } from "./socket.io.esm.min.js";
+import { setupPage, toggleColorButton, toggleTextButton } from "./sethtml.js";
+import { setupEvents, setupSocket } from "./socket.js";
 import { setupNav, getChangedTouches, getTouches } from "./touches.js";
 
-let backGroundSocket
-
 const onPause = () => {
-    backGroundSocket = io('https://sacionweb.up.railway.app/', {
-        transports: ['websocket', 'polling', 'flashsocket']
-    })
-    backGroundSocket.on('connect', () => {
+    socket = setupSocket()
+    socket.on('connect', () => {
         console.log('Connected')
-        backGroundSocket.on('recieve-newactuator', (state) => {
-            setActuatorState(state.name, true)
+        socket.on('recieve-newactuator', (state) => {
+            toggleColorButton(id)
+            toggleTextButton(id)
             navigator.vibrate(1000)
             navigator.notification.alert(`Actuador ${state.name} fue ${state.state ? 'encendido' : 'apagado'}`, () => { }, 'Sensor manipulado', 'Ok')
         })
@@ -23,6 +20,7 @@ const onDeviceReady = () => {
     document.addEventListener('pause', onPause, false)
     window.addEventListener('touchstart', getTouches, false)
     window.addEventListener('touchend', getChangedTouches, false)
+    setupEvents(setupSocket())
     setupNav()
     setupPage()
 }
