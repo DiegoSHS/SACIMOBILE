@@ -12,8 +12,7 @@ const API_URL = 'https://sacionweb.up.railway.app/api/'
  * @returns Returns a promise with the data of the logs
  */
 export const getSummary = async () => {
-    const result = await fetch(`${API_URL}saci/logs/summary`)
-    const data = await result.json()
+    const { data } = await axios.get(`${API_URL}saci/logs/summary`)
     return data
 }
 /**
@@ -34,8 +33,7 @@ export const useState = (initialState) => {
  * @returns Returns a promise with the data of the sensors
  */
 export const getActuators = async () => {
-    const result = await fetch(`${API_URL}saci/sensor/actuators`)
-    const data = await result.json()
+    const { data } = await axios.get(`${API_URL}saci/sensor/actuators`)
     return data
 }
 /**
@@ -46,9 +44,11 @@ export const getActuators = async () => {
  */
 export const enableSensor = async (id, enable) => {
     try {
-        console.log(id, enable)
-        const { data } = await axios.post(`${API_URL}saci/sensor/${id}/enable`, { enable }, { headers: { 'Content-Type': 'text/plain' } })
-        console.log(data)
+        await axios.post(
+            `${API_URL}saci/sensor/${id}/enable`,
+            { enable },
+            { headers: { 'Content-Type': 'text/plain' } }
+        )
         return true
     } catch (error) {
         return

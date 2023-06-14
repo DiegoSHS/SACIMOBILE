@@ -64,8 +64,6 @@ const setActuatorState = async (id) => {
     toggleLoadingButton(id)
     await enableSensor(id, !checkState(id))
     toggleLoadingButton(id)
-    toggleColorButton(id)
-    toggleTextButton(id)
 }
 
 const setActuatorsValues = (actuators) => {
