@@ -3,7 +3,7 @@ import Toastify from "../toasts/toastify-es.js"
 export const stateToast = (state, duration) => {
     const contentHtml = `
         <div class="content">
-            <i class="power icon ${state?'green':'red'}"></i>
+            <i class="power icon ${state.state ? 'green' : 'red'}"></i>
             ${`Actuador ${state.name} ${state.state ? 'encendido' : 'apagado'}`}
         </div>`
     const icon = document.createElement('div')
@@ -15,7 +15,7 @@ export const stateToast = (state, duration) => {
         node: icon,
         gravity: "top",
         position: 'right',
-        style:{
+        style: {
             padding: '0',
             margin: '0',
             border: 'none',

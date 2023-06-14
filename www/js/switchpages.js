@@ -1,3 +1,4 @@
+import { idRef } from "./sethtml.js"
 import { setActivetab } from "./touches.js"
 
 /**
@@ -5,7 +6,7 @@ import { setActivetab } from "./touches.js"
  * @returns {Boolean} true if the page is in the center
  */
 const isCenter = () => {
-    const center = document.getElementById('page1')
+    const center = idRef('page1')
     const left = center.classList.contains('sendLeft')
     const right = center.classList.contains('sendRight')
     return !(left || right)
@@ -41,10 +42,10 @@ const goRight = ({center,right}) => {
     if(isCenter()){
         toggleLeft(center)
         setCenter(right)
-        setActivetab(document.getElementById('aire'))
+        setActivetab(idRef('aire'))
         console.log('right')
     }else{
-        setActivetab(document.getElementById('inicio'))
+        setActivetab(idRef('inicio'))
         setCenter(center)
         toggleRight(right)
         console.log('center')
@@ -57,12 +58,12 @@ const goRight = ({center,right}) => {
 
 const goLeft = ({left,center}) => {
     if(isCenter()){
-        setActivetab(document.getElementById('suelo'))
+        setActivetab(idRef('suelo'))
         toggleRight(center)
         setCenter(left)
         console.log('left')
     }else{
-        setActivetab(document.getElementById('inicio'))
+        setActivetab(idRef('inicio'))
         setCenter(center)
         toggleLeft(left)
         console.log('center')
@@ -78,9 +79,9 @@ export const togglePage = (touch) => {
     if(!touch || !longTouch){
         return
     }
-    const center = document.getElementById('page1')
-    const left = document.getElementById('page2')
-    const right = document.getElementById('page3')
+    const center = idRef('page1')
+    const left = idRef('page2')
+    const right = idRef('page3')
     const leftmost = touch>0 && !left.classList.contains('sendLeft')
     const rightmost = touch<0 && !right.classList.contains('sendRight')
     if((leftmost || rightmost) && !isCenter()){
