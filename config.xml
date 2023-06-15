@@ -9,8 +9,8 @@
 </platform>
     <name>SACI</name>
     <description>Aplicacion movid del Sistema Automatizado para Cultivos de invernader (SACI)</description>
-    <author email="sacidevops@gmail.com" href="https://saci-indol.vercel.app/">
-        Apache Cordova Team
+    <author email="sacidevops@gmail.com" href="https://sacionweb.up.railway.app/">
+        SACI creators
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
