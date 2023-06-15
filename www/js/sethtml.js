@@ -1,5 +1,6 @@
 import { ActuatorCards } from "./components/sensorCard.js"
 import { enableSensor, getActuators, getSummary, useState } from "./requests.js"
+
 import { emitState, setupSocket } from "./socket.js"
 
 export const idRef = (id) => document.getElementById(id)
