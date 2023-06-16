@@ -1,6 +1,8 @@
 import { clearToasts } from "./components/toast.js"
 import { useState } from "./requests.js"
 import { idRef, toggleVisible } from "./sethtml.js"
+import { toggleVisibleCount } from "./socket.js"
+
 import { goCenterClick, goLeftClick, goRightClick, togglePage } from "./switchpages.js"
 
 const [touchPos, setTouchPos] = useState({
@@ -65,7 +67,7 @@ export const setupNav = () => {
     rightTab.addEventListener('click', goright)
     centerTab.addEventListener('click', gocenter)
     notiBtn.addEventListener('click', ()=>{
-        console.log('click')
+        toggleVisibleCount()
         toggleVisible('notifications')
     })
     clearBtn.addEventListener('click', clearToasts)

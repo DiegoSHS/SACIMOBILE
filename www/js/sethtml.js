@@ -1,7 +1,13 @@
 import { ActuatorCards } from "./components/sensorCard.js"
-import { badgeToasts, setToasts } from "./components/toast.js"
+import { createBadge } from "./components/toast.js"
 import { enableSensor, getActuators, getSummary, useState } from "./requests.js"
 import { emitState, setupSocket } from "./socket.js"
+
+const [loading, setLoading] = useState(true)
+
+const toggleLoading = () => setLoading(!loading())
+
+export const isVisibleNotis = (id) => idRef(id).classList.contains('visible')
 
 export const idRef = (id) => document.getElementById(id)
 
@@ -33,17 +39,16 @@ const toggleLoadingButton = (id) => {
     element.classList.toggle('loading')
 }
 
-export const isVisibleNotis = (id) => idRef(id).classList.contains('visible')
-
 export const toggleVisible = (id) => {
     const element = idRef(id)
     if (element.classList.contains('invisible')) {
-        setToasts(badgeToasts)
+        createBadge()
         element.classList.replace('invisible', 'visible')
     } else {
         element.classList.replace('visible', 'invisible')
     }
 }
+
 export const toggleColorButton = (id) => {
     const element = idRef(`act_${id}`)
     if (element.classList.contains('green')) {
@@ -88,10 +93,6 @@ const setActuatorsValues = (actuators) => {
         })
     })
 }
-
-const [loading, setLoading] = useState(true)
-
-const toggleLoading = () => setLoading(!loading())
 
 const loadButtons = () => {
     const buttons = document.querySelectorAll('.record')
