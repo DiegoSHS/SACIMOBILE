@@ -1,7 +1,7 @@
 
 /**
  * Generates the html of a sensor card
- * @param {Object} sensor the sensor object
+ * @param {*} param0 the sensor object
  * @returns {String} the html of the sensor card
  */
 const SensorCard = ({name,state,description,module}) => {
@@ -31,7 +31,11 @@ export const SensorCards = (sensors) => {
         </div>`
     )
 }
-
+/**
+ * Generates the html of a sensor card
+ * @param {*} param0 actuator object
+ * @returns {String} the html of the actuator card
+ */
 const ActuatorCard = ({name,description,state}) => {
     return (
         `<div class="ui item">
@@ -58,7 +62,11 @@ const ActuatorCard = ({name,description,state}) => {
         </div>`
     )
 }
-//ui items
+/**
+ * Creates the html of the actuator cards
+ * @param {Array} actuators an array of actuator objects
+ * @returns {String} the html of the actuator cards
+ */
 export const ActuatorCards = (actuators) => {
     return (
         `<div class="ui relaxed divided list">

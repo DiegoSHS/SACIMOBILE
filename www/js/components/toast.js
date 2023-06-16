@@ -1,13 +1,16 @@
 import { addNoti, deleteAllNotis, getNotis } from "../indexdb/transactions.js"
 import { useState } from "../requests.js"
 import { idRef, isVisibleNotis } from "../sethtml.js"
-import { toggleVisibleCount, updateCounter } from "../socket.js"
+import { updateCounter } from "../socket.js"
 import Toastify from "../toasts/toastify-es.js"
 
 let toast
 
 const [badgeToasts, setBadgeToasts] = useState([])
-
+/**
+ * Creates a timestamp in the format dd/mm/yyyy hh:mm
+ * @returns {String} the current time in the format dd/mm/yyyy hh:mm
+ */
 const timeStamp = () => {
     const date = new Date(Date.now())
     const day = date.getDate()
@@ -17,7 +20,14 @@ const timeStamp = () => {
     const minutes = date.getMinutes()
     return `${day}/${month}/${year} ${hour}:${minutes}`
 }
-
+/**
+ * Generates the html string of a toast
+ * @param {Boolean} state the state of the actuator
+ * @param {String} name the name of the actuator
+ * @param {String} timeStamp the timestamp of the notification
+ * @param {Boolean} onBadge true if the notification is on the badge
+ * @returns {String} the html string of the toast
+ */
 const toastHtml = (state, name, timeStamp, onBadge) => {
     return (
         `
@@ -29,7 +39,11 @@ const toastHtml = (state, name, timeStamp, onBadge) => {
         `
     )
 }
-
+/**
+ * Creates a html element of a toast
+ * @param {String} contentHtml the html string of the toast
+ * @returns {HTMLDivElement} the div element of the toast
+ */
 const toastDiv = (contentHtml) => {
     const icon = document.createElement('div')
     icon.classList.add('ui', 'tiny', 'message')
@@ -37,7 +51,14 @@ const toastDiv = (contentHtml) => {
     icon.innerHTML = contentHtml
     return icon
 }
-
+/**
+ * Generates an object with the props of a toast
+ * @param {Boolean} onBadge true if the notification is on the badge 
+ * @param {Number} duration the duration of the toast in ms
+ * @param {HTMLElement} element the element where the toast will be appended
+ * @param {HTMLDivElement} customhtml the html that will be appended to the toast
+ * @returns {Object} the props of the toast
+ */
 const toastProps = (onBadge, duration, element, customhtml) => ({
     selector: element,
     duration: onBadge ? -1 : duration,
@@ -53,7 +74,11 @@ const toastProps = (onBadge, duration, element, customhtml) => ({
         maxWidth: '100%'
     }
 })
-
+/**
+ * Generates and array of toast props
+ * @param {Array} toasts an array of objects with the props of the toasts
+ * @returns {Array} an array of toast props
+ */
 const generateToasts = (toasts) => toasts.map(({ name, state, timestamp }) => {
     const html = toastHtml(state, name, timestamp, true)
     const icon = toastDiv(html)
@@ -61,7 +86,10 @@ const generateToasts = (toasts) => toasts.map(({ name, state, timestamp }) => {
     const props = toastProps(true, -1, element, icon)
     return props
 })
-
+/**
+ * Shows the toasts on the DOM
+ * @param {Array} toasts an array of objects with the props of the toasts
+ */
 export const setToasts = (toasts) => {
     idRef('notis').innerHTML = ''
     toasts.forEach((toast) => {
@@ -71,20 +99,29 @@ export const setToasts = (toasts) => {
         elem.classList.remove('toastify-right')
     })
 }
-
+/**
+ * Creates the badge with the notifications
+ */
 export const createBadge = async () => {
     const allnotis = await getNotis()
     setBadgeToasts(generateToasts(allnotis))
     setToasts(badgeToasts())
 }
-
+/**
+ * Deletes all the notifications and hides the badge
+ */
 export const clearToasts = async () => {
     setBadgeToasts([])
     await deleteAllNotis()
     await updateCounter()
     idRef('notis').innerHTML = ''
 }
-
+/**
+ * Generates a toast and shows it on the DOM and on the badge
+ * @param {Object} param0 object with the state and name of the actuator
+ * @param {Number} duration duration of the toast in ms
+ * @param {Boolean} onBadge true if the notification is on the badge
+ */
 export const stateToast = async ({ state, name }, duration, onBadge) => {
     if (toast && !onBadge) {
         toast.hideToast()

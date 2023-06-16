@@ -1,7 +1,10 @@
 import { openDB } from 'https://cdn.jsdelivr.net/npm/idb@7/+esm'
 
 let db
-
+/**
+ * Initializes the database
+ * @returns {Promise<IDBDatabase>} the database
+ */
 const initdb = async () => {
     if (db){
         console.log('using cached db')
