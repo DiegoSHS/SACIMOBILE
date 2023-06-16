@@ -8,7 +8,6 @@ export const idRef = (id) => document.getElementById(id)
 export const setSummaryValues = ({ aire, suelo }) => {
     const { tempAire, humAire, co2, lum, tds, radiation } = aire
     const { tempAvg, phAvg, humAvg } = suelo
-
     idRef('tempAire').innerHTML = `<i aria-hidden="true" class="fi-rr-summer icon red"></i>
     Temp: ${tempAire} °C`
     idRef('humAire').innerHTML = `<i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
@@ -45,7 +44,6 @@ export const toggleVisible = (id) => {
         element.classList.replace('visible', 'invisible')
     }
 }
-
 export const toggleColorButton = (id) => {
     const element = idRef(`act_${id}`)
     if (element.classList.contains('green')) {
