@@ -1,9 +1,35 @@
-import { stateToast } from "./components/toast.js"
-import { isVisibleNotis, toggleColorButton, toggleTextButton } from "./sethtml.js"
+import { createBadge, stateToast } from "./components/toast.js"
+import { getNotis } from "./indexdb/transactions.js"
+import { useState } from "./requests.js"
+import { idRef, isVisibleNotis, toggleColorButton, toggleTextButton } from "./sethtml.js"
 import { io } from "./socket.io.esm.min.js"
 
 let socket
-export let notifyCounter = 0
+const [notifyCounter, setNotifyCounter] = useState(0)
+
+export const updateCounter = async () => {
+    const notis = await getNotis()
+    const count = notis.length
+    setNotifyCounter(count)
+}
+
+export const toggleVisibleCount = async () => {
+    if (notifyCounter()) {
+        idRef('noticounter').classList.toggle('hidden')
+    }
+}
+
+export const setupBadge = async () => {
+    createBadge()
+    await updateCounter()
+    const counter = idRef('noticounter')
+    if (notifyCounter()) {
+        counter.classList.remove('hidden')
+        counter.innerHTML = notifyCounter()
+    } else {
+        counter.classList.add('hidden')
+    }
+}
 
 export const setupSocket = () => {
     if (socket) {
@@ -20,16 +46,19 @@ export const setupSocket = () => {
     return socket
 }
 export const setupEvents = (socket) => {
-    socket.on('recieve-newactuator', (state) => {
+    socket.on('recieve-newactuator', async(state) => {
         const { name } = state
+        const noti = idRef('noticounter')
         toggleColorButton(name)
         toggleTextButton(name)
-        if(isVisibleNotis('notifications')) {
-            stateToast(state, 1500, true)
-            notifyCounter++
-        }else{
-            stateToast(state, 5000, false)
+        if (isVisibleNotis('notifications')) {
+            stateToast(state, -1, true)
+        } else {
+            noti.classList.remove('hidden')
+            stateToast(state, 1500, false)
         }
+        await updateCounter()
+        noti.innerHTML = notifyCounter()
     })
 }
 export const emitState = (socket, { name, state }) => {
