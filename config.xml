@@ -15,6 +15,7 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <preference name="KeepRunning" value="true"/>
     <preference name="StatusBarOverlayWebView" value="true"/>
     <preference name="StatusBarStyle" value="#lightcontent"/><preference name="StatusBarBackgroundColor" value="#21BA45" />
 </widget>

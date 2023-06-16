@@ -30,16 +30,24 @@
             Suelo
         </a>
         <a class="item navitem grey" id="inicio">
-            Inicio
+            Resumen
         </a>
         <a class="item navitem grey" id="aire">
-            Aire
+            <i class="fi fi-rr-gears"></i>
+            Control
         </a>
     </div>
     <div id="content">
+    <div id="toasts"></div>
+
+        <div class="ui container">
+            <div class="ui icon button circular green" id="notibtn">
+                <i class="fi fi-rr-bell"></i>
+            </div>
+        </div>
         <div class="spage ui one column" id="page1">
-            <div id="overcontent" class="ui fluid grid container">
-                <div id="margin" class="ui centered inverted stretched one column grid">
+            <div class="ui fluid grid container">
+                <div class="margin ui centered inverted stretched one column grid">
                     <div class="center aligned middle aligned column">
                         <form class="ui form">
                             <h1 class="ui header">Suelo</h1>
@@ -122,8 +130,8 @@
             </div>
         </div>
         <div class="spage ui one column sendLeft" id="page2">
-            <div id="overcontent" class="ui fluid grid container">
-                <div id="margin" class="ui centered inverted stretched one column grid">
+            <div class="ui fluid grid container">
+                <div class="margin ui centered inverted stretched one column grid">
                     <div class="center aligned middle aligned column">
                         <form class="ui form">
                             <h1 class="ui header">Suelo</h1>
@@ -140,13 +148,33 @@
             </div>
         </div>
         <div class="spage ui one column sendRight" id="page3">
-            <div id="overcontent" class="ui fluid grid container">
-                <div id="margin" class="ui centered inverted stretched one column grid">
+            <div class="ui fluid grid container">
+                <div class="margin ui centered inverted stretched one column grid">
                     <div class="center aligned middle aligned column">
                         <form class="ui form">
-                            <h1 class="ui header">Aire</h1>
+                            <h1 class="ui header">Control de invernadero</h1>
                             <div class="equal width fields">
                                 <div class="field" id="actuators">
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui one column invisible" id="notifications">
+            <div class="ui fluid grid container segment">
+                <div class="ui centered inverted stretched one column grid">
+                    <div class="center aligned middle aligned column">
+                        <form class="ui form">
+                            <h1 class="ui header">Notificaciones</h1>
+                            <div class="ui icon left labeled button basic" id="cleartoasts">
+                                <i aria-hidden="true" class="fi-sr-check icon black"></i>
+                                Marcar todo como leído
+                            </div>
+                            <div class="equal width fields">
+                                <div class="field" id="notis">
                                     
                                 </div>
                             </div>
