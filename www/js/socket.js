@@ -1,8 +1,10 @@
 import { stateToast } from "./components/toast.js"
-import { toggleColorButton, toggleTextButton } from "./sethtml.js"
+import { isVisibleNotis, toggleColorButton, toggleTextButton } from "./sethtml.js"
 import { io } from "./socket.io.esm.min.js"
 
 let socket
+export let notifyCounter = 0
+
 export const setupSocket = () => {
     if (socket) {
         console.log('Socket already setup')
@@ -22,7 +24,12 @@ export const setupEvents = (socket) => {
         const { name } = state
         toggleColorButton(name)
         toggleTextButton(name)
-        stateToast(state, 1500)
+        if(isVisibleNotis('notifications')) {
+            stateToast(state, 1500, true)
+            notifyCounter++
+        }else{
+            stateToast(state, 5000, false)
+        }
     })
 }
 export const emitState = (socket, { name, state }) => {

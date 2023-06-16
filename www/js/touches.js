@@ -1,4 +1,6 @@
+import { clearToasts } from "./components/toast.js"
 import { useState } from "./requests.js"
+import { idRef, toggleVisible } from "./sethtml.js"
 import { goCenterClick, goLeftClick, goRightClick, togglePage } from "./switchpages.js"
 
 const [touchPos, setTouchPos] = useState({
@@ -25,14 +27,14 @@ export const getChangedTouches = (e) => {
     const { x } = touchPos()
     const diffX = Math.trunc(clientX - x)
     togglePage(diffX)
-    return { clientX, clientY, diffX}
+    return { clientX, clientY, diffX }
 }
 /**
  * Sets the active tab to the one that was clicked
  * @param {Event} e 
  */
 export const setActive = (e) => {
-    const element = document.getElementById(e.target.id)
+    const element = idRef(e.target.id)
     setActivetab(element)
 }
 /**
@@ -48,19 +50,23 @@ export const setActivetab = (element) => {
 export const setupNav = () => {
     const tabs = document.querySelectorAll('.navitem')
     tabs.forEach(tab => tab.addEventListener('click', setActive))
-    const leftTab = document.getElementById('suelo')
-    const rightTab = document.getElementById('aire')
-    const centerTab = document.getElementById('inicio')
-    const center = document.getElementById('page1')
-    const left = document.getElementById('page2')
-    const right = document.getElementById('page3')
-    leftTab.addEventListener('click',()=>{
-        goLeftClick({left,center,right})
+    const leftTab = idRef('suelo')
+    const rightTab = idRef('aire')
+    const centerTab = idRef('inicio')
+    const center = idRef('page1')
+    const left = idRef('page2')
+    const right = idRef('page3')
+    const notiBtn = idRef('notibtn')
+    const clearBtn = idRef('cleartoasts')
+    const goleft = () => goLeftClick({ left, center, right })
+    const goright = () => goRightClick({ left, center, right })
+    const gocenter = () => goCenterClick({ left, center, right })
+    leftTab.addEventListener('click', goleft)
+    rightTab.addEventListener('click', goright)
+    centerTab.addEventListener('click', gocenter)
+    notiBtn.addEventListener('click', ()=>{
+        console.log('click')
+        toggleVisible('notifications')
     })
-    rightTab.addEventListener('click',()=>{
-        goRightClick({left,center,right})
-    })
-    centerTab.addEventListener('click',()=>{
-        goCenterClick({left,center,right})
-    })
+    clearBtn.addEventListener('click', clearToasts)
 }
