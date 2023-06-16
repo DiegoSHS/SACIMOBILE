@@ -6,9 +6,17 @@ import { emitState, setupSocket } from "./socket.js"
 const [loading, setLoading] = useState(true)
 
 const toggleLoading = () => setLoading(!loading())
-
+/**
+ * Checks if the HTMLElement is visible
+ * @param {String} id the id of the HTMLElement
+ * @returns {Boolean} true if the HTMLElement contains the class 'visible'
+ */
 export const isVisibleNotis = (id) => idRef(id).classList.contains('visible')
-
+/**
+ * Shortcut to document.getElementById
+ * @param {String} id the id of the HTMLElement
+ * @returns {HTMLElement} the HTMLElement with the id
+ */
 export const idRef = (id) => document.getElementById(id)
 
 export const setSummaryValues = ({ aire, suelo }) => {
@@ -33,12 +41,15 @@ export const setSummaryValues = ({ aire, suelo }) => {
     idRef('humAvg').innerHTML = `<i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
     Humedad: ${humAvg}%`
 }
-
-const toggleLoadingButton = (id) => {
-    const element = idRef(id)
-    element.classList.toggle('loading')
-}
-
+/**
+ * Toggle the loading class of the HTMLElement
+ * @param {String} id the id of the HTMLElement
+ */
+const toggleLoadingButton = (id) => idRef(id).classList.toggle('loading')
+/**
+ * Toggle the visible and invisible classes of the HTMLElement
+ * @param {String} id the id of the HTMLElement
+ */
 export const toggleVisible = (id) => {
     const element = idRef(id)
     if (element.classList.contains('invisible')) {
@@ -48,18 +59,22 @@ export const toggleVisible = (id) => {
         element.classList.replace('visible', 'invisible')
     }
 }
-
+/**
+ * Changes the color of the button from green to red and viceversa
+ * @param {String} id the id of the HTMLElement
+ */
 export const toggleColorButton = (id) => {
     const element = idRef(`act_${id}`)
     if (element.classList.contains('green')) {
-        element.classList.remove('green')
-        element.classList.add('red')
+        element.classList.replace('green','red')
     } else {
-        element.classList.remove('red')
-        element.classList.add('green')
+        element.classList.replace('red','green')
     }
 }
-
+/**
+ * Replace the text of the button from 'Encendido' to 'Apagado' and viceversa
+ * @param {String} id the id of the HTMLElement
+ */
 export const toggleTextButton = (id) => {
     const element = idRef(id)
     const html = element.innerHTML
@@ -69,9 +84,19 @@ export const toggleTextButton = (id) => {
         element.innerHTML = html.replace('Apagado', 'Encendido')
     }
 }
-
+/**
+ * Checks if a html element contains a text
+ * @param {String} id the id of the HTMLElement
+ * @param {RegExp} regex regular expression to test the text of the HTMLElement
+ * @returns 
+ */
 const checkState = (id, regex = /Encendido/g) => regex.test(idRef(id).innerHTML)
-
+/**
+ * Replaces the text of a html element
+ * @param {String} id the id of the HTMLElement
+ * @param {RegExp} regex regular expression to replace
+ * @returns 
+ */
 const replaceId = (id, regex = /act_/g) => id.replace(regex, '')
 
 const setActuatorState = async (id) => {

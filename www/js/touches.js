@@ -2,7 +2,6 @@ import { clearToasts } from "./components/toast.js"
 import { useState } from "./requests.js"
 import { idRef, toggleVisible } from "./sethtml.js"
 import { toggleVisibleCount } from "./socket.js"
-
 import { goCenterClick, goLeftClick, goRightClick, togglePage } from "./switchpages.js"
 
 const [touchPos, setTouchPos] = useState({
