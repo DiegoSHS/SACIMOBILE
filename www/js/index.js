@@ -1,5 +1,5 @@
 import { setupPage, toggleColorButton, toggleTextButton } from "./sethtml.js";
-import { setupEvents, setupSocket } from "./socket.js";
+import { setupBadge, setupEvents, setupSocket } from "./socket.js";
 import { setupNav, getChangedTouches, getTouches } from "./touches.js";
 
 const onPause = () => {
@@ -22,6 +22,7 @@ const onDeviceReady = () => {
     window.addEventListener('touchend', getChangedTouches, false)
     setupEvents(setupSocket())
     setupNav()
+    setupBadge()
     setupPage()
 }
 
