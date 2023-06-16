@@ -4,15 +4,15 @@
  * @param {Object} sensor the sensor object
  * @returns {String} the html of the sensor card
  */
-const SensorCard = (sensor) => {
+const SensorCard = ({name,state,description,module}) => {
     return (
         `<div class="ui card">
             <div class="content">
-                <div class="header">${sensor.name}</div>
-                <div class="description">${sensor.description}</div>
+                <div class="header">${name}</div>
+                <div class="description">${description}</div>
                 <div class="ui labels">
-                    <button class="ui mini ${sensor.state ? 'green':'red'} active button">Estado:${sensor.state ? 'encendido' : 'apagado'}</button>
-                    <div class="ui label">Modulo:${sensor.module}</div>
+                    <button class="ui mini ${state ? 'green':'red'} active button">Estado:${state ? 'encendido' : 'apagado'}</button>
+                    <div class="ui label">Modulo:${module}</div>
                 </div>
             </div>
         </div>
@@ -32,26 +32,26 @@ export const SensorCards = (sensors) => {
     )
 }
 
-const ActuatorCard = (actuator) => {
+const ActuatorCard = ({name,description,state}) => {
     return (
         `<div class="ui item">
             <div class="content">
                 <div class="ui big circular fluid icon left labeled button">
                     <i aria-hidden="true" class="fi fi-sr-air-freshener icon blue"></i>
-                    ${actuator.name}
+                    ${name}
                 </div>
                 <div class="description">
                     <p class="justify">
-                        ${actuator.description}
+                        ${description}
                     </p>
                 </div>
                 <div class="extra">
-                    <button class="ui button circular enable" id="${actuator.name}">
+                    <button class="ui button circular enable" id="${name}">
                         <i aria-hidden="true"
-                            id="act_${actuator.name}"
-                            class="fi fi-sr-power icon ${actuator.state ? 'green' : 'red'}
+                            id="act_${name}"
+                            class="fi fi-sr-power icon ${state ? 'green' : 'red'}
                             "></i>
-                        ${actuator.state ? 'Encendido' : 'Apagado'}
+                        ${state ? 'Encendido' : 'Apagado'}
                     </button>
                 </div>
             </div>

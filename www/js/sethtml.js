@@ -1,14 +1,14 @@
 import { ActuatorCards } from "./components/sensorCard.js"
+import { badgeToasts, setToasts } from "./components/toast.js"
 import { enableSensor, getActuators, getSummary, useState } from "./requests.js"
 import { emitState, setupSocket } from "./socket.js"
 
 export const idRef = (id) => document.getElementById(id)
 
-export const setSummaryValues = (records) => {
-    const {
-        aire: { tempAire, humAire, co2, lum, tds, radiation },
-        suelo: { tempAvg, phAvg, humAvg }
-    } = records
+export const setSummaryValues = ({ aire, suelo }) => {
+    const { tempAire, humAire, co2, lum, tds, radiation } = aire
+    const { tempAvg, phAvg, humAvg } = suelo
+
     idRef('tempAire').innerHTML = `<i aria-hidden="true" class="fi-rr-summer icon red"></i>
     Temp: ${tempAire} °C`
     idRef('humAire').innerHTML = `<i aria-hidden="true" class="fi-sr-humidity icon blue"></i>
@@ -32,6 +32,18 @@ export const setSummaryValues = (records) => {
 const toggleLoadingButton = (id) => {
     const element = idRef(id)
     element.classList.toggle('loading')
+}
+
+export const isVisibleNotis = (id) => idRef(id).classList.contains('visible')
+
+export const toggleVisible = (id) => {
+    const element = idRef(id)
+    if (element.classList.contains('invisible')) {
+        setToasts(badgeToasts)
+        element.classList.replace('invisible', 'visible')
+    } else {
+        element.classList.replace('visible', 'invisible')
+    }
 }
 
 export const toggleColorButton = (id) => {
