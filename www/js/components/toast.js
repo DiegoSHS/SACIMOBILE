@@ -7,6 +7,7 @@ import Toastify from "../toasts/toastify-es.js"
 let toast
 
 const [badgeToasts, setBadgeToasts] = useState([])
+
 /**
  * Creates a timestamp in the format dd/mm/yyyy hh:mm
  * @returns {String} the current time in the format dd/mm/yyyy hh:mm
