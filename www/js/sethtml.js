@@ -64,7 +64,7 @@ export const toggleVisible = (id) => {
  * @param {String} id the id of the HTMLElement
  */
 export const toggleColorButton = (id) => {
-    const element = idRef(`act_${id}`)
+    const element = idRef(id)
     if (element.classList.contains('green')) {
         element.classList.replace('green','red')
     } else {
@@ -90,7 +90,7 @@ export const toggleTextButton = (id) => {
  * @param {RegExp} regex regular expression to test the text of the HTMLElement
  * @returns 
  */
-const checkState = (id, regex = /Encendido/g) => regex.test(idRef(id).innerHTML)
+const checkState = (id, regex = /Encendido/) => regex.test(idRef(id).innerHTML)
 /**
  * Replaces the text of a html element
  * @param {String} id the id of the HTMLElement
