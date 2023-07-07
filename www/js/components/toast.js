@@ -32,10 +32,10 @@ const timeStamp = () => {
 const toastHtml = (state, name, timeStamp, onBadge) => {
     return (
         `
-        <div class="content">
+        <div class="content" style="text-align:left;">
             <i class="power icon ${state ? 'green' : 'red'}"></i>
             Actuador ${name} ${state ? 'encendido' : 'apagado'}
-            ${onBadge ? `<div class="ui label active mini">${timeStamp}</div>` : ''}
+            <div>${onBadge ? `<div class="ui active right">${timeStamp}</div>` : ''}</div>
         </div>
         `
     )
