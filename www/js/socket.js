@@ -46,7 +46,7 @@ export const setupSocket = () => {
     return socket
 }
 export const setupEvents = (socket) => {
-    socket.on('recieve-newactuator', async(state) => {
+    socket.on('recieve-newactuator', async (state) => {
         const { name } = state
         const noti = idRef('noticounter')
         toggleColorButton(name)
@@ -65,5 +65,10 @@ export const emitState = (socket, { name, state }) => {
     socket.emit('send-newactuator', {
         name,
         state
+    })
+    socket.emit('send-notification', {
+        title: 'Actuador actualizado',
+        description: `Un usuario móvil ${!state ? 'encendió' : 'apagó'} el actuador ${name}`,
+        date: formatter()
     })
 }
